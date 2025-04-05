@@ -72,4 +72,16 @@ public class ZapatillaRepositoryTest {
             Assertions.assertFalse(lista.isEmpty(), "La lista de zapatillas no debería estar vacía");
         }
 
+    @Test
+    @Order(5)
+    public void testBuscarPorNombre() {
+        List<Zapatilla> zapatillas = zapatillaRepository.findByNombreContainingIgnoreCase("Air Max");
+        Assertions.assertFalse(zapatillas.isEmpty(), "No se encontraron zapatillas con el nombre Air Max");
+    }
+        
+        
+        
+        
+        
+        
 }
