@@ -36,7 +36,8 @@ public class Zapatilla {
 
     private String imagenUrl;
 
-    public Zapatilla() {}
+    public Zapatilla() {
+    }
 
     public Zapatilla(Long id, String nombre, String descripcion, String marca, String categoria, Double precio, Integer stock, String imagenUrl) {
         this.id = id;

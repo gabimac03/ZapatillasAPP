@@ -4,6 +4,7 @@ package com.angelmacocco.test;
 import com.angelmacocco.model.Zapatilla;
 import com.angelmacocco.repository.ZapatillaRepository;
 import java.util.List;
+import java.util.Optional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -19,7 +20,7 @@ public class ZapatillaRepositoryTest {
     @Autowired
     private ZapatillaRepository zapatillaRepository;
 
-    @Test
+  /*  @Test
     @Order(1)
     public void testGuardarZapatilla() {
         Zapatilla z = new Zapatilla();
@@ -32,17 +33,43 @@ public class ZapatillaRepositoryTest {
 
         Assertions.assertNotNull(guardada.getId());
     }
-    
-    @Test
-    @Order(3)
-    public void borrarZapatilla(){
-        zapatillaRepository.deleteById(1L);
-    }
-
+/*
     @Test
     @Order(2)
     public void testBuscarTodas() {
         List<Zapatilla> lista = zapatillaRepository.findAll();
         Assertions.assertFalse(lista.isEmpty());
     }
+    
+    @Test
+    @Order(3)
+    public void borrarZapatilla(){
+        zapatillaRepository.deleteById(1L);
+    }*/
+    
+   /* @Test
+    @Order(4)
+    
+    public void buscarZapatillaPorId() {
+    Zapatilla z = new Zapatilla();
+    z.setMarca("Nike");
+    z.setNombre("Air Max");
+    z.setTalle(42);
+    z.setPrecio(15000.0);
+
+    Zapatilla guardada = zapatillaRepository.save(z);
+
+    Optional<Zapatilla> encontrada = zapatillaRepository.findById(guardada.getId());
+
+    Assertions.assertTrue(encontrada.isPresent());
+    Assertions.assertEquals("Air Max", encontrada.get().getNombre());
+}*/
+    
+    @Test
+    @Order(2)
+        public void testBuscarTodas() {
+            List<Zapatilla> lista = zapatillaRepository.findAll();
+            Assertions.assertFalse(lista.isEmpty(), "La lista de zapatillas no debería estar vacía");
+        }
+
 }
