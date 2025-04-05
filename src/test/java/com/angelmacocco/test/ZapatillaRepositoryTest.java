@@ -32,6 +32,12 @@ public class ZapatillaRepositoryTest {
 
         Assertions.assertNotNull(guardada.getId());
     }
+    
+    @Test
+    @Order(3)
+    public void borrarZapatilla(){
+        zapatillaRepository.deleteById(1L);
+    }
 
     @Test
     @Order(2)
