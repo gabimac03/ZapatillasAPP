@@ -103,7 +103,11 @@ public class ZapatillaRepositoryTest {
         Assertions.assertEquals(18000.0, actualizada.get().getPrecio());
 }
         
-        
+    @Test
+    @Order(999)
+    void eliminarTodo() {
+    zapatillaRepository.deleteAll();
+    }    
    
         
 }
