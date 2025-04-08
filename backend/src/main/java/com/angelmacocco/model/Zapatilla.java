@@ -3,7 +3,6 @@ package com.angelmacocco.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
-
 @Entity
 @Table(name = "zapatillas")
 public class Zapatilla {
@@ -27,7 +26,7 @@ public class Zapatilla {
     @NotNull(message = "El precio es obligatorio")
     @Positive(message = "El precio debe ser mayor que 0")
     private Double precio;
-    
+
     @Positive(message = "El talle debe ser mayor que 0")
     private int talle;
 
@@ -36,21 +35,26 @@ public class Zapatilla {
 
     private String imagenUrl;
 
+    @Min(value = 0, message = "La cantidad no puede ser negativa")
+    private Integer cantidad;
+
     public Zapatilla() {
     }
 
-    public Zapatilla(Long id, String nombre, String descripcion, String marca, String categoria, Double precio, Integer stock, String imagenUrl) {
+    public Zapatilla(Long id, String nombre, String descripcion, String marca, String categoria, Double precio, int talle, Integer stock, String imagenUrl, Integer cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.marca = marca;
         this.categoria = categoria;
         this.precio = precio;
+        this.talle = talle;
         this.stock = stock;
         this.imagenUrl = imagenUrl;
+        this.cantidad = cantidad;
     }
 
-    // Getters y Setters (idénticos a los tuyos)
+    // Getters y Setters
 
     public Long getId() {
         return id;
@@ -59,16 +63,6 @@ public class Zapatilla {
     public void setId(Long id) {
         this.id = id;
     }
-
-    public int getTalle() {
-        return talle;
-    }
-
-    public void setTalle(int talle) {
-        this.talle = talle;
-    }
-    
-    
 
     public String getNombre() {
         return nombre;
@@ -110,6 +104,14 @@ public class Zapatilla {
         this.precio = precio;
     }
 
+    public int getTalle() {
+        return talle;
+    }
+
+    public void setTalle(int talle) {
+        this.talle = talle;
+    }
+
     public Integer getStock() {
         return stock;
     }
@@ -125,8 +127,14 @@ public class Zapatilla {
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
     }
-    
-    
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
+    }
 
     @Override
     public String toString() {
@@ -135,6 +143,9 @@ public class Zapatilla {
                 ", nombre='" + nombre + '\'' +
                 ", marca='" + marca + '\'' +
                 ", precio=" + precio +
+                ", talle=" + talle +
+                ", stock=" + stock +
+                ", cantidad=" + cantidad +
                 '}';
     }
 }

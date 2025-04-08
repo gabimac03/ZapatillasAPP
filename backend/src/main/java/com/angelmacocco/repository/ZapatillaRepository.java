@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface ZapatillaRepository extends JpaRepository<Zapatilla, Long> {
@@ -23,6 +24,9 @@ public interface ZapatillaRepository extends JpaRepository<Zapatilla, Long> {
 
     // Buscar por stock disponible
     List<Zapatilla> findByStockGreaterThan(Integer stock);
+    
+    Optional<Zapatilla> findByNombre(String nombre);
+
 }
 
 
